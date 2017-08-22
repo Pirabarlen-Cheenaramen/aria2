@@ -86,6 +86,8 @@ WinTLSContext::WinTLSContext(TLSSessionSide side, TLSVersion ver)
     case TLS_PROTO_TLS12:
       credentials_.grbitEnabledProtocols |= SP_PROT_TLS1_2_CLIENT;
     // fall through
+    case TLS_PROTO_TLS13:
+      credentials_.grbitEnabledProtocols |= SP_PROT_TLS1_3_CLIENT;
     default:
       break;
     }
@@ -103,6 +105,8 @@ WinTLSContext::WinTLSContext(TLSSessionSide side, TLSVersion ver)
     // fall through
     case TLS_PROTO_TLS12:
       credentials_.grbitEnabledProtocols |= SP_PROT_TLS1_2_SERVER;
+    case TLS_PROTO_TLS13:
+      credentials_.grbitEnabledProtocols |= SP_PROT_TLS1_3_SERVER
     // fall through
     default:
       break;
